@@ -19,7 +19,7 @@ const galleryItemsList = galleryItems
   )
   .join("");
 
-let instance;
+
 galleryPlace.insertAdjacentHTML("afterbegin", galleryItemsList);
 galleryPlace.addEventListener("click", (event) => {
   event.preventDefault();
