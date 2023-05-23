@@ -21,7 +21,21 @@ const galleryItemsList = galleryItems
 
 galleryPlace.insertAdjacentHTML("afterbegin", galleryItemsList);
 galleryPlace.addEventListener("click", (event) => {
-  console.log(event.target.dataset.source);
-});
+  event.preventDefault();
+  if (event.target.nodeName !== 'IMG') {
+    return;
+  }
+  const largeImSrc = event.target.dataset.source;
+    
+  const instance = basicLightbox.create(`
+    <img src="${largeImSrc}" width="800" height="600">
+`);
+  instance.show();
+ });
 
-//console.log(galleryItems);
+document.addEventListener('keydown', event => {
+  if (event.code === 'Escape') {
+    instance.close();
+  }
+});
+console.log(galleryItems);
