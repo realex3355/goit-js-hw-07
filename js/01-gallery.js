@@ -19,6 +19,7 @@ const galleryItemsList = galleryItems
   )
   .join("");
 
+let instance;
 galleryPlace.insertAdjacentHTML("afterbegin", galleryItemsList);
 galleryPlace.addEventListener("click", (event) => {
   event.preventDefault();
@@ -30,12 +31,26 @@ galleryPlace.addEventListener("click", (event) => {
   const instance = basicLightbox.create(`
     <img src="${largeImSrc}" width="800" height="600">
 `);
+      
   instance.show();
- });
+  //  if (escapePush) {
+  //    instance.close();
+  //    console.log(escapePush);
+  // };
+  
+//  onClose: (instance) => {
+//   escapePush = false;
+//  };
 
-document.addEventListener('keydown', event => {
-  if (event.code === 'Escape') {
-    instance.close();
-  }
 });
+ 
+//let escapePush = false;
+//document.addEventListener('keydown', event => {
+  //if (event.code === 'Escape') {
+   // escapePush = true;
+   
+    //  };
+//});
+
+
 console.log(galleryItems);
