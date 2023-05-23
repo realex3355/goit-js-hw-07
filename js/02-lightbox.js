@@ -13,7 +13,9 @@ const galleryItemsList = galleryItems
   )
   .join("");
 
-  galleryPlace.insertAdjacentHTML("afterbegin", galleryItemsList);
-
-
+galleryPlace.insertAdjacentHTML("afterbegin", galleryItemsList);
+  
+const lightbox = new SimpleLightbox(".gallery__link", {
+  captionsData: "alt", captionDelay: "250"
+});
 console.log(galleryItems);
